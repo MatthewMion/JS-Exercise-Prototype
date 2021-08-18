@@ -39,8 +39,24 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {}
+function Person(name, age, stomach) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(food);
+  }
+};
+Person.prototype.poop = function () {
+  this.stomach = [];
+};
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`;
+};
 
+// console.log(Person.eat("burger"));
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -69,10 +85,10 @@ function Baby() {}
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window binding is when this refers to the window(global) scope and will show the javascript language itself
+  2. Implicit binding is when the "this" keyword refers to the object to the left of the dot
+  3. Explicit binding is when 'this' keyword refers to the argument passed in the .call(), .bind(), or .apply() function
+  4. New binding is when a constructor function is used to create a new object, 'this' is referring to that new object.
 */
 
 ///////// END OF CHALLENGE /////////
